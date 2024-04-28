@@ -15,9 +15,18 @@ taxa_crescimento_dia = []
 #Para calcular a taxa de crescimento de cada bactéria, iteramos sobre cada dado diário e aplicamos a fórmula a ele:
 
 for i in range(1, len(colonia_bacterias)):
-    taxa_dia = 100 * (colonia_bacterias[i] - colonia_bacterias[i-1])/ (colonia_bacterias[i-1])
+    taxa_dia = 100 * (colonia_bacterias[i]- colonia_bacterias[i-1])/ (colonia_bacterias[i-1])
     taxa_dia_formatada = "{:.2f}".format(taxa_dia)
     taxa_crescimento_dia.append(taxa_dia_formatada)
 
 print(taxa_crescimento_dia)
+
+# Você pode usar for i in colonia_bacterias para iterar diretamente sobre os elementos 
+# da lista colonia_bacterias, mas isso não fornecerá o índice i necessário para calcular a taxa 
+# de crescimento entre os elementos consecutivos da lista.
+# Quando você usa for i in range(1, len(colonia_bacterias)), você itera sobre os índices da lista,
+#  o que permite acessar tanto o elemento atual colonia_bacterias[i] quanto o elemento 
+#  anterior colonia_bacterias[i-1]. Isso é essencial para calcular a taxa de
+#  crescimento entre os elementos consecutivos. Nesse caso, começo pelo índice 1 e não com o índice 0 em "range(1, len(colonia_bacterias))" 
+#  porque quero a taxa de variação entre um dia e outro, o que ó pode ser obtido a partir do segundo dia (índice 1)
 
